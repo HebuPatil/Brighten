@@ -29,7 +29,7 @@ app.post('/messages', (req, res) => {
             created: new Date()
         };
         allMessages
-            .insert()
+            .insert(userMessage)
             .then(createdMessage => {
                 res.json(createdMessage);
             })

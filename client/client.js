@@ -2,7 +2,7 @@ console.log('Hello World!')
 
 const form = document.querySelector('form');
 const loadingElement = document.querySelector('.loading');
-const API_URL = 'http://localhost:5000/Brighten'
+const API_URL = 'http://localhost:5000/messages'
 
 loadingElement.style.display = 'none';
 
@@ -27,5 +27,8 @@ form.addEventListener('submit', (event) => {
         headers: {
             'content-type': 'application/json'
         }
-    })
+    }).then(response => response.json())
+      .then(createdMessage => {
+        console.log(createdMessage);
+      });
 });
