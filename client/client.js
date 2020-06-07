@@ -2,6 +2,7 @@ console.log('Hello World!')
 
 const form = document.querySelector('form');
 const loadingElement = document.querySelector('.loading');
+const API_URL = 'http://localhost:5000/Brighten'
 
 loadingElement.style.display = 'none';
 
@@ -19,4 +20,12 @@ form.addEventListener('submit', (event) => {
     console.log(userMessage)
     form.style.display = 'none';
     loadingElement.style.display = '';
+
+    fetch(API_URL, {
+        method: 'POST',
+        body: JSON.stringify(userMessage),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
 });
