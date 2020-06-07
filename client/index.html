@@ -17,7 +17,7 @@
 				</strong>
 			</div>
 			<ul class="nav-links">
-				<li><a id="myBtn" href="#">Send a Message</a></li>
+				<li><strong><a id="myBtn" href="#">Send a Message</a></strong></li>
 				<li><a class="" href="about.html">About</a></li>
 			</ul>
 		</div>
@@ -74,7 +74,7 @@
 							<br>
 						<textarea placeholder="Thoughtful message..." type="text" id="message" name="message"></textarea>
 						<br>
-						<button class="button-primary button-round">Send!</button>
+						<button id="submit" class="button-primary button-round">Send!</button>
 					</form>
 				</div>
 				<!--MODAL SCRIPT-->
@@ -86,33 +86,25 @@
 		</div>
 		
 		<script>
-		// Get the modal
 		var modal = document.getElementById("myModal");
-		
-		// Get the button that opens the modal
 		var btn = document.getElementById("myBtn");
-		
-		// Get the <span> element that closes the modal
+		var sub = document.getElementById("submit");
 		var span = document.getElementsByClassName("close")[0];
-		
-		// When the user clicks the button, open the modal 
 		btn.onclick = function() {
 		  modal.style.display = "block";
 		}
-		
-		// When the user clicks on <span> (x), close the modal
+		sub.onclick = function() {
+		  modal.style.display = "none";
+		}
 		span.onclick = function() {
 		  modal.style.display = "none";
 		}
-		
-		// When the user clicks anywhere outside of the modal, close it
 		window.onclick = function(event) {
 		  if (event.target == modal) {
 			modal.style.display = "none";
 		  }
 		}
 		</script>
-		
 		</body>
 
 
