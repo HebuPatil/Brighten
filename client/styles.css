@@ -1,11 +1,26 @@
 
+body {
+  background-color: rgb(255, 255, 255);
+}
+
 .title {
     text-align: center;
+    width: 90%;
+    margin: auto auto;
+}
+
+.center {
+  text-align: center;
 }
 
 .message-form{
   width: 50%;
-  margin: 0 auto;
+  margin: auto auto;
+}
+
+.panel{
+  width: 60%;
+  margin: auto auto;
 }
 
 .loading {
@@ -15,6 +30,22 @@
 }
 
 .messages {
-  width: 80%;
+  
   margin: 0 auto;
+  padding-left: 500px;
+  
+}
+
+.card {
+  width: 50%;
+  margin: auto auto;
+  text-align: center;
+}
+
+.panel {
+  width: 100%;
+  margin: auto auto;
+  text-align: center;
+  padding: 20px;
+  background-color: rgb(254, 255, 189);
 }

@@ -7,28 +7,134 @@
         <title>Brighten</title>
         <link rel="stylesheet" href="https://unpkg.com/mustard-ui@latest/dist/css/mustard-ui.min.css">
 		<link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-		<h1 class="title">Brighten</h1>
-	</body>
+	</head>
 	
-	
+	<nav>
+		<div class="navbar nav-container">
+			<div>
+				<strong>
+				<a class="active nav-logo" href="index.html">Brighten</a>
+				</strong>
+			</div>
+			<ul class="nav-links">
+				<li><a id="myBtn" href="#">Send a Message</a></li>
+				<li><a class="" href="about.html">About</a></li>
+			</ul>
+		</div>
+	</nav>
+
+
+	<style>
+		body {font-family: Arial, Helvetica, sans-serif;}
+		
+		/* The Modal (background) */
+		.modal {
+		  display: none; /* Hidden by default */
+		  position: fixed; /* Stay in place */
+		  z-index: 1; /* Sit on top *//* Location of the box */
+		  width: 100%; /* Full width */
+		  overflow: auto; /* Enable scroll if needed */
+		}
+		
+		/* Modal Content */
+		.modal-content {
+			padding: 20px;
+		}
+		
+		/* The Close Button */
+		.close {
+		  color: #aaaaaa;
+		  float: right;
+		  font-size: 28px;
+		  font-weight: bold;
+		}
+		
+		.close:hover,
+		.close:focus {
+		  color: #000;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+		</style>
+		</head>
+		<body>
+		
+		<!-- Trigger/Open The Modal -->
+		
+		<!-- The Modal -->
+		<div id="myModal" class="modal">
+		
+		  <!-- Modal content -->
+		  <div class="modal-content">
+			<span class="close">&times;</span>
+				<div>
+					<form class="message-form">
+						<h3><br>Send your own message!<br></h3>
+						<input placeholder="Name" type="text" id="name" name="name"></input>
+							<br>
+						<textarea placeholder="Thoughtful message..." type="text" id="message" name="message"></textarea>
+						<br>
+						<button class="button-primary button-round">Send!</button>
+					</form>
+				</div>
+				<!--MODAL SCRIPT-->
+				<div class="loading">
+					<img src="loading.gif" alt="Sending...">
+				</div>
+		  </div>
+		
+		</div>
+		
+		<script>
+		// Get the modal
+		var modal = document.getElementById("myModal");
+		
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+		
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+		
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+		  modal.style.display = "block";
+		}
+		
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		  modal.style.display = "none";
+		}
+		
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+			modal.style.display = "none";
+		  }
+		}
+		</script>
+		
+		</body>
+
+
+
+
+
+
 
     <main>
-		<form class="message-form">
-			<h7 class="title">You may only submit a message once per 12 hours.<br></h7>
-			<label for="name">Name</label>
-			<input class="u-full-width" type="text" id="name" name="name"></input>
-
-			<label for="message">Message</label>
-			<textarea class="u-full-width" type="text" id="message" name="message"></textarea>
+		<br>
+		<br>
+		<div class="panel">
+			<h1 class="title">Brighten is the social media made to create appreciation for the people who put their life on the line for us</h1>
 			<br>
-			<button class="button-primary button-round">Send Message!</button>
-		</form>
-		<!--MODAL SCRIPT-->
-		<div class="loading">
-			<img src="loading.gif" alt="Sending...">
+			<h5>What people are saying<img src="downarrow.gif" alt="" style="width:50px;height:40px;"></h5>
 		</div>
+		
+		
+		<br>
+		<br>
+
+
 		<div class="messages">
 
 		</div>

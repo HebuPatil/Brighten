@@ -42,7 +42,7 @@ form.addEventListener('submit', (event) => {
 });
 
 function listAllMessages() {
-    messageElement.innerHTML
+    messageElement.innerHTML ='';
     fetch(API_URL) 
         .then(response => response.json())
         .then(messages => {
@@ -52,13 +52,16 @@ function listAllMessages() {
                 const div = document.createElement('div');
 
                 const header= document.createElement('h3');
-                header.textContent = message.name;
+                header.textContent = message.name + " says:";
 
                 const contents = document.createElement('p');
                 contents.textContent = message.content;
 
                 const date = document.createElement('small');
-                date.textContent = new Date(message.created);
+                const dateee = new Date(message.created);
+                date.textContent = "On " + (dateee.getMonth()+ 1) + "/" + dateee.getDate() + "/" + dateee.getFullYear();
+
+
 
                 div.appendChild(header);
                 div.appendChild(contents);
