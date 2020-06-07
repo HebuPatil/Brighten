@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const monk = require('monk');
 const Filter = require('bad-words');
+const rateLimit = require("express-rate-limit");
 
 const app  = express();
 const db = monk('localhost/Brighten');
@@ -11,17 +12,12 @@ const filter = new Filter({ placeHolder: '❤️'});
 app.use(cors()); //cors issue
 app.use(express.json()); //json parser
 
+
 app.get('/', (req, res) => {
     res.json({
       message: 'Hello, Brighten'
     });
   });
-
-  /// INSTEAD OF THSI USE YUP OR JOI (VALIDATION)
-function isValidMessage(userMessage) {
-    return userMessage.name && userMessage.name.toString().trim() !== '' && userMessage.name.toString().trim().length <= 50 &&
-    userMessage.message && userMessage.message.toString().trim() !== '' && userMessage.message.toString().trim().length <= 140;
-}
 
 app.get('/messages', (req, res) => {
     allMessages
@@ -30,6 +26,17 @@ app.get('/messages', (req, res) => {
             res.json(mews);
         })
 })
+
+  /// INSTEAD OF THSI USE YUP OR JOI (VALIDATION)
+  function isValidMessage(userMessage) {
+    return userMessage.name && userMessage.name.toString().trim() !== '' && userMessage.name.toString().trim().length <= 50 &&
+    userMessage.message && userMessage.message.toString().trim() !== '' && userMessage.message.toString().trim().length <= 140;
+}
+
+app.use(rateLimit({
+    windowMs: 30 * 1000,
+    max: 1
+}))
 
 app.post('/messages', (req, res) => {
     if(isValidMessage(req.body)) {

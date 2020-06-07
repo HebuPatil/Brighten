@@ -33,13 +33,16 @@ form.addEventListener('submit', (event) => {
     }).then(response => response.json())
       .then(createdMessage => {
         form.reset();
-        form.style.display = '';
+        setTimeout(() => {
+            form.style.display = '';
+        }, 30000)
+        
         listAllMessages();
       });
 });
 
 function listAllMessages() {
-    messageElement.innerHTML = '';
+    messageElement.innerHTML
     fetch(API_URL) 
         .then(response => response.json())
         .then(messages => {
