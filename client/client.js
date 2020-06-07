@@ -35,7 +35,7 @@ form.addEventListener('submit', (event) => {
         form.reset();
         setTimeout(() => {
             form.style.display = '';
-        }, 30000)
+        }, 43200000)
         
         listAllMessages();
       });
@@ -72,3 +72,4 @@ function listAllMessages() {
             loadingElement.style.display = 'none';
         });
 }
+

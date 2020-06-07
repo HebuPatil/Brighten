@@ -5,7 +5,7 @@ const Filter = require('bad-words');
 const rateLimit = require("express-rate-limit");
 
 const app  = express();
-const db = monk('localhost/Brighten');
+const db = monk(process.env.MONGO_URI || 'localhost/Brighten');
 const allMessages = db.get('messages');
 const filter = new Filter({ placeHolder: '❤️'});
 
@@ -34,7 +34,7 @@ app.get('/messages', (req, res) => {
 }
 
 app.use(rateLimit({
-    windowMs: 30 * 1000,
+    windowMs: 720 * 60 * 1000,
     max: 1
 }))
 
